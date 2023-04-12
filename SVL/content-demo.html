@@ -51,8 +51,14 @@
 <button class="button openspace">Grand Canyon</button>
 
 <p>But there's more to space than just the Earth! Let's check out another planet! </p>
-<button class="button navigate">Mars</button>
+<button class="button navigate"  onclick="window.location.href='https://w3docs.com';">Mars</button>
 <button class="button navigate">Jupiter</button>
+
+<!-- This is how I get a button to perform an open space action and change pages --> 
+<button onclick="(async () => {
+            openspace.pathnavigation.flyTo('Mars')
+            window.location.href='https://w3docs.com'
+          })(event)">Fly to Mars</button>
 
 </body>
 </html>
