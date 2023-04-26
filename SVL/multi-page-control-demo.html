@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <title>Creating Multi-Page Controls</title>
+	<link rel='icon' href='openspace128.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="openspace-api.js"></script>
+    <script type="text/javascript">
+
+    //variable for js libarary
+    var openspace = null;
+
+    //testing a hold function for a button
+    var counter;
+    var count = 0;
+    function start() {
+      counter = setInterval(async () => {
+      openspace.navigation.addGlobalRotation(0.0,-2.5)
+      count++;
+      }, 500);
+    }
+    function end() {
+     clearInterval(counter)
+    }
+
+
+    //helper function to connect to opensapce
+    var connectToOpenSpace = () => {
+      //setup the api params
+      var host = document.getElementById('ipaddress').value;
+      var api = window.openspaceApi(host, 4682);
+      //notify users on disconnect
+      api.onDisconnect(() => {
+        console.log("disconnected");
+        document.getElementById('container').className = "disconnected";
+        var disconnectedString = "Connect to OpenSpace: ";
+        disconnectedString += '<input id="ipaddress" type=text placeholder="Enter ip address" /> ';
+        disconnectedString += '<button onClick="connectToOpenSpace();">Connect</button>';
+        document.getElementById('connection-status').innerHTML = disconnectedString;
+        openspace = null;
+      });
+      //notify users and map buttons when connected
+      api.onConnect(async () => {
+        try {
+          document.getElementById('container').className = "connected";
+          document.getElementById('connection-status').innerHTML = "Connected to OpenSpace";
+          openspace = await api.library();
+          console.log('connected');
+          mapButtons(openspace);
+          } catch (e) {
+          console.log('OpenSpace library could not be loaded: Error: \n', e)
+          return;
+        }
+      })
+      //connect
+      api.connect();
+      };
+        </script>
+      </head>
+      <body>
+        <!-- HTML Containers -->
+        <div id="container" class="disconnected">
+          <div id="connection-status" class="connection-status">
+            Connect to OpenSpace:
+            <input id='ipaddress' type=text placeholder="Enter ip address" />
+            <button onClick="connectToOpenSpace();">Connect</button>
+          </div>
+          <div id="main"></div>
+          <script type="text/javascript">
+            connectToOpenSpace('localhost');
+          </script>
+        </div>
+        <h1> Creating Demo Multipage</h1>
+        <h2> The Solar System is a big wide beautiful place.</h2>
+        <p>OpenSpace helps you explore the Solar System and tell different stories.</p>
+        <button onclick="(async () => {
+            openspace.pathnavigation.flyTo('Mars')
+          })(event)">Fly to Mars</button>
+          <button onclick="(async () => {
+            openspace.pathnavigation.flyTo('Earth')
+          })(event)">Fly to Earth</button>
+
+          <p>Want to learn more? Trying going to some of these places!</p>
+
+          <div>
+          <button onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,5.0)
+          })(event)">Up</button>
+          </div>
+
+          <div>
+          <button onclick="(async () => {
+            openspace.navigation.addGlobalRotation(5.0,0.0)
+          })(event)">Left</button>
+          <button onclick="(async () => {
+            openspace.navigation.addGlobalRotation(-5.0,0.0)
+          })(event)">Right</button>
+        </div>
+
+        <div>
+          <button onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,-5.0)
+          })(event)" onmousedown="start()" onmouseup="end()">Down</button>
+        </div>
+
+      <body>
+    </html>
