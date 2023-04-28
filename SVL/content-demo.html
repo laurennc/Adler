@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style2.css">
-<style>
+  <title>Creating Multi-Page Controls</title>
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" type="text/css" href="buttons.css">
 
-.button {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
+  <script type="text/javascript" src="openspace-api.js"></script>
+  <script type="text/javascript">
 
-.navigate {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #ffce34;
-}
+    //variable for js libarary
+    var openspace = null;
 
-.navigate:hover {
-  background-color: #ffce34;
-  color: white;
-}
+    //helper function to connect to opensapce
+    var connectToOpenSpace = () => {
+      //setup the api params
+      var host = document.getElementById('ipaddress').value;
+      var api = window.openspaceApi(host, 4682);
+      //notify users on disconnect
+      api.onDisconnect(() => {
+        console.log("disconnected");
+        document.getElementById('container').className = "disconnected";
+        var disconnectedString = "Connect to OpenSpace: ";
+        disconnectedString += '<input id="ipaddress" type=text placeholder="Enter ip address" /> ';
+        disconnectedString += '<button onClick="connectToOpenSpace();">Connect</button>';
+        document.getElementById('connection-status').innerHTML = disconnectedString;
+        openspace = null;
+      });
+      //notify users and map buttons when connected
+      api.onConnect(async () => {
+        try {
+          document.getElementById('container').className = "connected";
+          document.getElementById('connection-status').innerHTML = "Connected to OpenSpace";
+          openspace = await api.library();
+          console.log('connected');
+          mapButtons(openspace);
+          } catch (e) {
+          console.log('OpenSpace library could not be loaded: Error: \n', e)
+          return;
+        }
+      })
+      //connect
+      api.connect();
+      };
+      </script>
 
-.openspace {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-
-.openspace:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-</style>
 
 </head>
 <body>
+
+<!-- HTML Containers -->
+        <div id="container" class="disconnected">
+          <div id="connection-status" class="connection-status">
+            Connect to OpenSpace:
+            <input id='ipaddress' type=text placeholder="Enter ip address" />
+            <button onClick="connectToOpenSpace();">Connect</button>
+          </div>
+          <div id="main"></div>
+          <script type="text/javascript">
+            connectToOpenSpace('localhost');
+          </script>
+        </div>
+        
 
 <h1>Title of Example Content</h1>
 
 <p>Here we can provide a narrative of what people may want to do! They can do some exploration using some OpenSpace commands and then pick something to do next! </p>
 
-<p> <strong> Pick a place on the globe to navigate to! </strong></p>
-<button class="button openspace">Chicago</button>
-<button class="button openspace">Mauna Kea</button>
-<button class="button openspace">Grand Canyon</button>
+<p> <strong> Pick a place to fly to! </strong></p>
+<button class="button openspace" onclick="(async () => {openspace.pathnavigation.flyTo('Mars')})(event)">Mars</button>
+<button class="button openspace" onclick="(async () => {openspace.pathnavigation.flyTo('Jupiter')})(event)">Jupiter</button>
+<button class="button openspace" onclick="(async () => {openspace.pathnavigation.flyTo('Saturn')})(event)">Saturn</button>
 
 <p>But there's more to space than just the Earth! Let's check out another planet! </p>
 <button class="button navigate"  onclick="window.location.href='https://w3docs.com';">Mars</button>
@@ -65,13 +83,24 @@
 
 <div class="set yellow">
   <nav class="d-pad">
-    <a class="up" href="#"></a>
-    <a class="right" href="#"></a>
-    <a class="down" href="#"></a>
-    <a class="left" href="#"></a>  
+    <a class="up" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,5.0)
+          })(event)"></a>
+    <a class="right" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(-5.0,0.0)
+          })(event)"></a>
+    <a class="down" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,-5.0)
+          })(event)" onmousedown="start()" onmouseup="end()"></a>
+    <a class="left" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(5.0,0.0)
+          })(event)"></a>  
   </nav>
 </div>
 <script src="d-pad.js"></script>
+
+<button onclick="(async () => {openspace.pathnavigation.flyTo('Saturn')})(event)">-</button>
+<button onclick="(async () => {openspace.pathnavigation.flyTo('Saturn')})(event)">+</button>
 
 
 </body>
