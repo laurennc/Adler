@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+
+<title> Exploring the Apollo Missions </title>
+<link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" type="text/css" href="buttons.css">
+<style type="text/css">
+
+body {
+	background-color: #474C55;
+}
+.style {
+	font-family: Verdana; /* find Montserrat */
+	color: #FFFFFF;
+	font-size: 16px; 
+}
+
+.text {
+	width: 50%;
+	float: left;
+	/*padding: 10px;*/
+}
+
+.position-dpad {
+	width: 30%;
+}
+
+h1 {
+	font-family: Impact; /* find HEROIC */
+	color: #FFCE34;
+	text-transform: uppercase;
+}
+</style>
+</head>
+
+<body>
+<h1> Testing if this font works</h1>
+
+<p class="style text"> Let's try and add a decent amount of words here. I'm hoping that this looks ok but you never know. It's more fun trying to learn all of this CSS stuff now that I have an actual project that I'm trying to create. Theoretical learning works for me in person but is terribly unsuccessful when I have to do it online. </p>
+
+<p class="position-dpad">
+	What if I just added text here 
+</p>
+<div class="set  yellow">
+  <nav class="d-pad">
+    <a class="up" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,5.0)
+          })(event)"></a>
+    <a class="right" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(-5.0,0.0)
+          })(event)"></a>
+    <a class="down" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(0.0,-5.0)
+          })(event)" onmousedown="start()" onmouseup="end()"></a>
+    <a class="left" href="#" onclick="(async () => {
+            openspace.navigation.addGlobalRotation(5.0,0.0)
+          })(event)"></a>  
+  </nav>
+</div>
+
+<button class="button zoom-button" onclick="(async () => {openspace.navigation.addTruckMovement(0.0, 5.0)})(event)">+</button>
+<script src="d-pad.js"></script>
+
+</body>
+</html>
+
