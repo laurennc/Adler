@@ -48,3 +48,19 @@
   color: white;
   border-radius: 30%;
 }
+
+.reset-button {
+  font-size: 42px;
+  font-weight: bold;
+  background-color: #f8cf54; 
+  color: white; 
+  border: 2px solid #f8cf54;
+
+  border-radius: 15%;
+}
+
+.reset-button:hover {
+  background-color: #fce290;
+  color: white;
+  border-radius: 15%;
+}
