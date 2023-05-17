@@ -1,3 +1,31 @@
+body {
+  background-color: #474C55;
+  padding-left: 25px;
+}
+.style {
+  font-family: Verdana; /* find Montserrat */
+  color: #FFFFFF;
+  font-size: 16px; 
+}
+
+.text {
+  /*width: 50%;*/
+  float: left;
+  /*padding: 10px;*/
+}
+
+.row {
+  margin-bottom:  15px;
+}
+
+h1 {
+  padding-top: 25px;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  font-family: Impact; /* find HEROIC */
+  color: #FFCE34;
+  text-transform: uppercase;
+}
 
 .set {
   overflow: hidden;
