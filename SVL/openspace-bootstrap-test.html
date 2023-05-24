@@ -13,6 +13,46 @@
 
 <style type="text/css">
 </style>
+<script type="text/javascript" src="openspace-api.js"></script>
+     <script type="text/javascript">
+
+    //variable for js libarary
+    var openspace = null;
+
+    //helper function to connect to opensapce
+    var connectToOpenSpace = () => {
+      //setup the api params
+      var host = document.getElementById('ipaddress').value;
+      var api = window.openspaceApi(host, 4682);
+      //notify users on disconnect
+      api.onDisconnect(() => {
+        console.log("disconnected");
+        document.getElementById('container').className = "disconnected";
+        var disconnectedString = "Connect to OpenSpace: ";
+        disconnectedString += '<input id="ipaddress" type=text placeholder="Enter ip address" /> ';
+        disconnectedString += '<button onClick="connectToOpenSpace();">Connect</button>';
+        document.getElementById('connection-status').innerHTML = disconnectedString;
+        openspace = null;
+      });
+      //notify users and map buttons when connected
+      api.onConnect(async () => {
+        try {
+          document.getElementById('container').className = "connected";
+          document.getElementById('connection-status').innerHTML = "Connected to OpenSpace";
+          openspace = await api.library();
+          console.log('connected');
+          mapButtons(openspace);
+          } catch (e) {
+          console.log('OpenSpace library could not be loaded: Error: \n', e)
+          return;
+        }
+      })
+      //connect
+      api.connect();
+      };
+        </script>
+
+
 </head>
 
 <!-- 
@@ -21,6 +61,20 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 -->
 
 <body>
+
+	<!-- HTML Containers -->
+        <div id="container" class="disconnected">
+          <div id="connection-status" class="connection-status">
+            Connect to OpenSpace:
+            <input id='ipaddress' type=text placeholder="Enter ip address" />
+            <button onClick="connectToOpenSpace();">Connect</button>
+          </div>
+          <div id="main"></div>
+          <script type="text/javascript">
+            connectToOpenSpace('localhost');
+          </script>
+        </div>
+        
 <h1>Explore where humans have walked on the moon!</h1>
 
 <div class="container-fluid">
@@ -67,7 +121,7 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 		<div class="col-md-6" align="center">
 			<div class="row">
 				<div class="col-med-12">
-					<button class="button reset-button" onclick="(async () => {openspace.navigation.addTruckMovement(0.0, 5.0)})(event)">RESET</button>
+					<button class="button reset-button" onclick="(async () => {openspace.pathnavigation.flyTo('Moon')})(event)">Reset</button>
 				</div>
 		</div>
 	</div>
@@ -77,6 +131,8 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 	<script src="js/jquery-3.7.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
+
+
 
 
 </body>
