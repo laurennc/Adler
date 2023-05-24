@@ -115,8 +115,12 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 	
 	<div class="row">
 		<div class="col-md-6" align="center">
-			<button class="button zoom-button" onclick="(async () => {openspace.navigation.addTruckMovement(0.0, 5.0)})(event)">+</button>
-			<button class="button zoom-button" onclick="(async () => {openspace.navigation.addTruckMovement(0.0, 5.0)})(event)">+</button>
+			<button class="button zoom-button" ><-</button>
+			<button class="button zoom-button" onclick="(async () => {
+				openspace.globebrowsing.flyToGeo('Moon', 0.67345, 23.47307, 100000)
+				window.location.href='page2.html'
+			})(event)">-></button>
+
 		</div>
 		<div class="col-md-6" align="center">
 			<div class="row">
