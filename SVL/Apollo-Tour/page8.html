@@ -129,7 +129,7 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 		<div class="col-md-6" align="center">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-left-circle-fill svg-button" viewBox="0 0 16 16" 
 			onclick="(async () => {
-				window.location.href='page1.html'
+				window.location.href='page7.html'
 				openspace.pathnavigation.flyTo('Moon')
 			})(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
@@ -138,7 +138,7 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 
 			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-right-circle-fill svg-button" viewBox="0 0 16 16" 
 			onclick="(async () => {
-				window.location.href='page3.html'
+				window.location.href='page9.html'
 				openspace.globebrowsing.flyToGeo('Moon', 0.67345, 23.47307, 100000)
 			})(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
@@ -152,6 +152,9 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 
 
 
+
+
+
 <!-- jQuery FIRST (Bootstrap JS plugins depend on it) -->
 	<script src="js/jquery-3.7.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -159,7 +162,7 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 	<script>
 (function() {
 
-    const idleDurationSecs = 15;    // X number of seconds
+    const idleDurationSecs = 300;    // X number of seconds
     const redirectUrl = 'page1.html';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
