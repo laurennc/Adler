@@ -30,8 +30,10 @@ def equirec_to_cubemap(equirec: np.ndarray, out_size: int) -> List[np.ndarray]:
     faces = []
 
     r = np.sqrt(u**2 + v**2 + 1) # Same values for each face
+    i = 0
     for x, y, z in list_xyz:
-        # Camera Convestion RIGHT_DOWN_FRONT
+        print(i)
+	# Camera Convestion RIGHT_DOWN_FRONT
         phi = np.arcsin(y/r) # in [-pi/2, pi/2]
         theta = np.arctan2(x, z) # in [-pi, pi]
 
@@ -44,5 +46,5 @@ def equirec_to_cubemap(equirec: np.ndarray, out_size: int) -> List[np.ndarray]:
 
         faces.append(cv2.remap(equirec, theta_map, phi_map, cv2.INTER_CUBIC,
                                borderMode=cv2.BORDER_WRAP))
-        
-        return faces
+        i = i + 1
+    return faces
