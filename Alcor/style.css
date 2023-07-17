@@ -1,0 +1,349 @@
+/*
+OpenSpace Interface
+Authors: Lauren Corlies (Adler), Steve Burkland (Adler)
+Department: Theaters & Visualization
+
+This is the style sheet for the OpenSpace Interace.  This experience is a user interface that allows a guest or facilitator remotely oprerate a computer running the
+OpenSpace planetarium software.  It includes a series of bookmarked locations, and allows the user to navigate around them.
+It also contains two accessibility features: A toggle between 'English' and 'Spanish' translations of the content, and
+the ability to have the current page audibly narrated.
+
+*/
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("fonts/Montserrat-Regular.eot"); /* IE9 Compat Modes */
+  src: url("fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fonts/Montserrat-Regular.otf") format("opentype"), /* Open Type Font */
+    url("fonts/Montserrat-Regular.svg") format("svg"), /* Legacy iOS */
+    url("fonts/Montserrat-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("fonts/Montserrat-Regular.woff") format("woff"), /* Modern Browsers */
+    url("fonts/Montserrat-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("fonts/Montserrat-Bold.eot"); /* IE9 Compat Modes */
+  src: url("fonts/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fonts/Montserrat-Bold.otf") format("opentype"), /* Open Type Font */
+    url("fonts/Montserrat-Bold.svg") format("svg"), /* Legacy iOS */
+    url("fonts/Montserrat-Bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("fonts/Montserrat-Bold.woff") format("woff"), /* Modern Browsers */
+    url("fonts/Montserrat-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HeroicCondensed-Regular";
+  src: url("fonts/HeroicCondensed-Regular.eot"); /* IE9 Compat Modes */
+  src: url("fonts/HeroicCondensed-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fonts/HeroicCondensed-Regular.otf") format("opentype"), /* Open Type Font */
+    url("fonts/HeroicCondensed-Regular.svg") format("svg"), /* Legacy iOS */
+    url("fonts/HeroicCondensed-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("fonts/HeroicCondensed-Regular.woff") format("woff"), /* Modern Browsers */
+    url("fonts/HeroicCondensed-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #474C55;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-family: "Montserrat-Regular";
+  font-size: 20px;
+}
+
+
+h1 {
+  font-family: "HeroicCondensed-Regular";
+  color: #FFCE34;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+img {
+	display: block:
+}
+
+/*START ---- dpad (Direction Pad) */
+	.set {
+		display: inline-block;
+		overflow: hidden;
+		padding: 15px;
+		padding-top: 70px;
+		text-align: center;
+	}
+	
+	.d-pad {
+		position: relative; 
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		
+	}
+	
+	.d-pad a {
+		display: block;
+		position: absolute;	
+		width: 33.3%;
+		height: 43%;
+		line-height: 40%;	
+		text-align: center;
+	}
+	
+	
+	.d-pad a.left, .d-pad a.right {
+		width: 43%;
+		height: 33%;
+	}
+	
+	.d-pad a.left:after, .d-pad a.right:after {
+		width: 78%;
+		height: 102%;
+	}
+	
+	.d-pad a.up {
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		border-radius: 17% 17% 50% 50%;
+	}
+	
+	.d-pad a.up:hover, .d-pad a.up:active {
+		mix-blend-mode: multiply;
+		background: linear-gradient(0deg, transparent 0%, transparent 20%, #ffd68f 90%);
+	}
+	
+	.d-pad a.down {
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		border-radius: 50% 50% 17% 17%;
+	}
+	
+	.d-pad a.down:hover, .d-pad a.down:active {
+		mix-blend-mode: multiply;
+		background: linear-gradient(180deg, transparent 0%, transparent 20%, #ffd68f 90%);
+	}
+	
+	.d-pad a.left {
+		top: 50%;
+		left: 0;
+		transform: translate(0, -50%);
+		border-radius: 17% 50% 50% 17%;
+	}
+	
+	.d-pad a.left:hover, .d-pad a.left:active {
+		mix-blend-mode: multiply;
+		background: linear-gradient(-90deg, transparent 0%, transparent 20%, #ffd68f 90%);
+	}
+	
+	.d-pad a.right {
+		top: 50%;
+		right: 0;
+		transform: translate(0, -50%);
+		border-radius: 50% 17% 17% 50%;
+	}
+	
+	.d-pad a.right:hover, .d-pad a.right:active {
+		mix-blend-mode: multiply;
+		background: linear-gradient(90deg, transparent 0%, transparent 20%, #ffd68f 90%);
+	}
+/*END ---- dpad (Direction Pad) */
+
+
+/* START --- Aux Buttons */
+	.imageWrapper {
+		position: relative;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.imageOverlayCircle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+		border-radius: 50% 50% 50% 50%;
+	}
+	
+	.imageOverlaySquare {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+		border-radius: 15% 15% 15% 15%;
+	}
+	
+	.imageOverlayCircle:hover, .imageOverlayCircle:active, .imageOverlaySquare:hover, .imageOverlaySquare:active {
+		mix-blend-mode: multiply;
+		
+		background: radial-gradient(transparent 0%, #ffd68f 70%);
+		
+		cursor: pointer;
+	}
+/* END --- Aux Buttons */
+
+
+.informationPage {
+	padding-left: 40px;
+	padding-right: 40px;
+	min-height: 330px;
+}
+
+
+
+/*START --- Accessibility Div */
+
+	hr {
+		border-color: white;
+		margin-right: 12px;
+		
+	}
+	
+	.accessibiity {
+		float: bottom;		
+		margin-bottom: 15px;
+	}
+	
+	.stacked{
+		position: absolute;
+		top: 0;
+		left: 0;	
+		cursor: pointer;
+	}
+	
+	.speakerIconMask {
+		position: absolute;
+		top: 0;
+		left: 25;
+		padding-left: 25px;
+		width: 50px;
+		height: 50px;
+		z-index: 3;	
+	}
+	
+	.imageOverlaySpeakerAnimation {
+		width: 50px;
+		height: 50px;
+		
+		animation-name: speakerAnimate;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in;
+	}
+	
+	@keyframes speakerAnimate {
+		0%	{
+				background: linear-gradient(90deg,#ffce34 0%,transparent 30%);
+			}
+			
+		5%	{
+				background: linear-gradient(90deg,#ffce34 0%,#ffce34 5%,transparent 35%);
+			}
+			
+		10%	{
+				background: linear-gradient(90deg,#ffce34 0%,#ffce34 10%,transparent 40%);
+			}
+			
+		15%	{
+				background: linear-gradient(90deg,#ffce34 0%,#ffce34 15%,transparent 45%);
+			}
+			
+		20%	{
+				background: linear-gradient(90deg,#ffce34 0%, 15%,#ffce34 20%,transparent 50%);
+			}
+	
+		25%	{
+				background: linear-gradient(90deg,#ffce34 0%, 0%,#ffce34 25%,transparent 55%);
+			}
+	
+		30%	{
+				background: linear-gradient(90deg,#ffce34 0%, 0%,#ffce34 30%,transparent 60%);
+			}
+			
+		35%	{
+				background: linear-gradient(90deg,transparent 5%,#ffce34 35%,transparent 65%);
+			}
+			
+		40%	{
+				background: linear-gradient(90deg,transparent 10%,#ffce34 40%,transparent 70%);
+			}
+			
+		45%	{
+				background: linear-gradient(90deg,transparent 15%,#ffce34 45%,transparent 75%);
+			}
+	
+		50%	{
+				background: linear-gradient(90deg,transparent 20%,#ffce34 50%,transparent 80%);
+			}
+	
+		55%	{
+				background: linear-gradient(90deg,transparent 25%,#ffce34 55%,transparent 85%);
+			}
+	
+		60%	{
+				background: linear-gradient(90deg,transparent 30%,#ffce34 60%,transparent 90%);
+			}
+	
+		65%	{
+				background: linear-gradient(90deg,transparent 35%,#ffce34 65%,transparent 95%);
+			}
+	
+		70%	{
+				background: linear-gradient(90deg,transparent 40%,#ffce34 70%,transparent 100%);
+			}
+	
+		75%	{
+				background: linear-gradient(90deg,transparent 45%,#ffce34 75%,transparent 100%);
+			}
+	
+		80%	{
+				background: linear-gradient(90deg,transparent 50%,#ffce34 80%,transparent 100%);
+			}
+	
+		85%	{
+				background: linear-gradient(90deg,transparent 55%,#ffce34 85%,transparent 100%);
+			}
+	
+		90%	{
+				background: linear-gradient(90deg,transparent 60%,#ffce34 90%,transparent 100%);
+			}
+	
+		95%	{
+				background: linear-gradient(90deg,transparent 65%,#ffce34 95%,transparent 100%);
+			}
+	
+		100%	{
+				background: linear-gradient(90deg,transparent 0%);
+				}			
+	}
+	
+	
+	.languageButton {
+		border: none;
+		background-color: transparent;
+		color: white;
+	}
+	
+	.selectedLanguage {
+		/*border-radius: 20%;*/
+		/*background-color: #ffce34;
+		color: #474c55;*/
+		border: 2px solid;
+		border-top-width: 0px;
+		border-left-width: 0px;
+		border-right-width: 0px;
+		border-color: #ffce34;
+		/*padding-left: 5px;
+		padding-right: 5px;*/
+		padding-bottom: 5px;
+	}
+/*END --- Accessibility Div */

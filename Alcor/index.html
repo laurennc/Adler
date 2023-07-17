@@ -1,0 +1,290 @@
+<!--
+OpenSpace Interface
+Authors: Lauren Corlies (Adler), Steve Burkland (Adler)
+Department: Theaters & Visualization
+
+This page is a user interface that allows a guest or facilitator remotely oprerate a computer running the
+OpenSpace planetarium software.  It includes a series of bookmarked locations, and allows the user to navigate around them.
+It also contains two accessibility features: A toggle between 'English' and 'Spanish' translations of the content, and
+the ability to have the current page audibly narrated.
+
+-->
+
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
+		
+		<title>OpenSpace Interactive</title>
+						
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">	
+
+		<!-- jQuery FIRST (Bootstrap JS plugins depend on it) -->
+		<script src="js/jquery-3.7.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="openspace-api.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		
+		<script type="text/javascript">
+		
+			//variable for js libarary
+			//var api;
+			var ipAddress="127.0.0.1";					//This is the IP adddress of the server hosting OpenSpace.  NOTE:  OpenSpace on that server needs to know the IP address of this client to accept the link.  The client IP is hardcoded into a config file.
+			var port=4682;							//This is the port OpenSpace is listening on for the hosting server.
+			
+			//variable for js libarary
+			var openspace = null;
+			
+			//helper function to connect to opensapce
+			var connectToOpenSpace = () => {
+													//setup the api params
+													var api = window.openspaceApi(ipAddress, port); //4682
+				
+													//notify users on disconnect
+				
+													api.onDisconnect(() => {
+																				console.log("disconnected");
+																				openspace = null;
+																			});
+				
+													//notify users and map buttons when connected
+													api.onConnect(async () => {
+																				try {
+																						openspace = await api.library();
+																						console.log('connected');
+																						//mapButtons(openspace);
+																						} catch (e) {
+																										console.log('OpenSpace library could not be loaded: Error: \n', e)
+																										return;
+																									}
+																				})
+				
+													//connect
+													api.connect();
+				
+													buildInformationPanel();								//This function initlaized the page content based on the default 'current' variable assignments.
+												};
+	  
+			//Information Page Variables
+			var information={
+									"moon": [
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "People have long imagined what it would be like to travel to the moon. Spurred on by technological advancement and competition with the USSR, NASA was mandated to send a man to the moon. Thus, the Apollo program was born. ",
+													"text2": "But where did these missions go? Where did people walk on the surface of the moon? And what are the plans for the future? Follow this tour to learn more. ",
+													"text3": "Moon - Page 1 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Header",
+													"text1Span": "Moon - Spanish Page 1 Text1",
+													"text2Span": "Moon - Spanish Page 1 Text2",
+													"text3Span": "Moon - Spanish Page 1 Text3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "Moon - Page 2 - Text 1",
+													"text2": "Moon - Page 2 - Text 2",
+													"text3": "Moon - Page 2 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Page 2 Header",
+													"text1Span": "Moon - Spanish Page 2 Text1",
+													"text2Span": "Moon - Spanish Page 2 Text2",
+													"text3Span": "Moon - Spanish Page 2 Text3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "Moon - Page 3 - Text 1",
+													"text2": "Moon - Page 3 - Text 2",
+													"text3": "Moon - Page 3 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Page 2 Header",
+													"text1Span": "Moon - Spanish Page 3 Text1",
+													"text2Span": "Moon - Spanish Page 3 Text2",
+													"text3Span": "Moon - Spanish Page 3 Text3",
+													"narrationSpan": "piano2.wav"
+												}
+											],
+											
+									"topic2": [
+												{
+													"header": "Topic 2 - Page 1 Header",
+													"text1": "Topic 2 - Page 1 - Text 1",
+													"text2": "Topic 2 - Page 1 - Text 2",
+													"text3": "Topic 2 - Page 1 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 1 Header",
+													"text1Span": "Topic 2 - Spanish Page 1 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 1 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 1 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 2 Header",
+													"text1": "Topic 2 - Page 2 - Text 1",
+													"text2": "Topic 2 - Page 2 - Text 2",
+													"text3": "Topic 2 - Page 2 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 2 Header",
+													"text1Span": "Topic 2 - Spanish Page 2 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 2 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 2 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 3 Header",
+													"text1": "Topic 2 - Page 3 - Text 1",
+													"text2": "Topic 2 - Page 3 - Text 2",
+													"text3": "Topic 2 - Page 3 - Text 3",
+													"narration": "topic2P3.mp3",
+													"headerSpan": "Topic 2 - Spanish Page 3 Header",
+													"text1Span": "Topic 2 - Spanish Page 3 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 3 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 3 - Text 3",
+													"narrationSpan": "piano2.wav"
+												}
+										     ]
+							};	
+			
+			var currentTopic="moon";
+			var currentPage=0;
+			
+			
+			
+			//Accessibility Div Variables
+			var narrationOn=false;
+			var currentLanguage="English";
+			var audio;
+			
+		</script>		
+		
+	</head>
+		
+	<body onload="connectToOpenSpace();" >
+				
+		<div id="experienceDiv" class="container-fluid" style="margin-top: 50px;">
+			<div class="row">
+							
+				<div id="navigationDiv" class="col-12 col-sm-6 col-lg-4">
+					
+					<div class="container-fluid">
+						
+						<div class="row" style="text-align: center;">
+							
+							<div id="dpadWrapper" class="col-7 col-sm-9 set">	
+							
+								<div id="dpadDiv" class="d-pad">									<!--The directional pad - The clickable areas are anchor links "a" which have width, height, and a background color that changes when they're clicked or hovered over.-->
+									<img src="images/dpad.png" width="200px" height="200px"  >
+									<a class="up" href="#" onclick="up();"></a>
+									<a class="right" href="#" onclick="right();"></a>
+									<a class="down" href="#" onclick="down();"></a>
+									<a class="left" href="#" onclick="left();"></a>  
+								</div>
+								
+							</div>
+							
+							<div id="auxButtonWrapper" class="col-5 col-sm-3" >								
+								<div id="plusSign" class="imageWrapper" onclick="plusSign();">			<!-- This is an image with an overlay that has a transition effect when it's clicked -->
+									<img src="images/plus.png" width="100px" height="100px"  >
+									
+									<div class="imageOverlaySquare"></div>
+								</div>
+								
+								<div id="minusSign" class="imageWrapper" onclick="minusSign();">			<!-- This is an image with an overlay that has a transition effect when it's clicked -->
+									<img src="images/minus.png" width="100px" height="100px" >
+									
+									<div class="imageOverlaySquare"></div>
+								</div>
+								
+								<div id="backSign" class="imageWrapper" onclick="back();">					<!-- This is an image with an overlay that has a transition effect when it's clicked -->
+									<img src="images/back.png" width="100px" height="100px" >
+									
+									<div class="imageOverlaySquare"></div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+				<div id="informationDiv" class="col-12 col-sm-6 col-lg-8 container-fluid"> 
+					
+					<div class="row">
+						<div id="informationPage" class="informationPage">					
+							<h1 id="informationHeader"></h1>				
+							<p id="informationText1"></p>
+							<p id="informationText2"></p>
+							<p id="informationText3"></p>
+						</div>				
+						
+					</div>
+					
+					<div id="arrowContainer" class="row">
+						
+						<div class="col-6" >
+					
+							<div id="leftArrow" class="imageWrapper" style="float: right; display: none;" onclick="turnPage('left');">				<!-- This is an image with an overlay that has a transition effect when it's clicked -->
+								<img src="images/leftArrow.png" width="100px" height="100px" >
+						
+								<div class="imageOverlayCircle" onclick=""></div>
+							</div>
+					
+						</div>
+				
+						<div class="col-6" >				
+							
+							<div id="rightArrow"  class="imageWrapper" onclick="turnPage('right');">
+								<img src="images/rightArrow.png" width="100px" height="100px" >						<!-- This is an image with an overlay that has a transition effect when it's clicked -->
+						
+								<div class="imageOverlayCircle" ></div>
+							</div>
+					
+						</div>					
+					
+					</div>
+					
+				</div>			
+			
+			</div>
+		</div>
+		
+		
+		
+		<div id="accessibilityDiv" class="container-fluid accessibiity">
+			<hr>		
+			<div class="row">
+			
+				<div id="speakerWrapper" style="position: relative;" onclick="narrationToggle();">					<!-- This is an image with an overlay and a mask that has a transition effect when it's clicked -->
+					<div class="stacked">
+						<img src="images/speaker-50x50.png">
+					</div>
+					
+					<div id="speakerAnimationLayer" class="stacked"></div>
+					
+					<div class="stacked">
+						<img src="images/speakerMask-50x50.png">
+					</div>
+				</div>
+				
+				<div class="col-6"  style="text-align: right; margin-top: 12px;" onclick="languageChoice('English');">
+					<button id="english" class="languageButton selectedLanguage">
+						English
+					</button>
+				</div>
+				
+				<div class="col-6" style="margin-top: 12px;" onclick="languageChoice('Spanish');">
+					<button id="spanish" class="languageButton">
+						Español
+					</button>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
+
