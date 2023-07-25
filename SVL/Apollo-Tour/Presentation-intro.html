@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title> Exploring the Apollo Missions </title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="buttons.css">
+
+<style type="text/css">
+</style>
+
+
+</head>
+
+
+<body>
+        
+<h1>Using OpenSpace in Adler's Space Visualization Lab</h1>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 style text"> 
+			<h3>Opportunities </h3>
+			<p><u><b>Digital is Adaptable</b></u></p>
+			<p style="margin-left: 20px">More easily swap in new content and show off new discoveries</p>
+
+			<p><u><b>Invite People to Explore</b></u> </p>
+			<p style="margin-left: 20px"> Lab space gives guests a chance to play and ask their own questions</p>
+		</div>
+		<div class="col-md-6 style text"> 
+			<h3>Challenges </h3>
+			<p><u><b>Unfacilitied</b></u></p>
+			<p style="margin-left: 20px">Need an intuitive interface that requires no training</p>
+
+			<p><u><b>Invite People to Explore</b></u> </p>
+			<p style="margin-left: 20px">Lab space gives guests a chance to play and ask their own questions</p>
+		</div>
+		
+		</div>
+
+  <div class="row" >
+	<h2>How can we provide guided but interactive experiences?</h2>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6" align="center">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-left-circle-fill svg-button" viewBox="0 0 16 16" >
+  					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
+  					<path d="M 8 0 z m 3.5 7.5 a 0.5 0.5 0 0 1 0 1 H 5.707 l 2.147 2.146 a 0.5 0.5 0 0 1 -0.708 0.708 l -3 -3 a 0.5 0.5 0 0 1 0 -0.708 l 3 -3 a 0.5 0.5 0 1 1 0.708 0.708 L 5.707 7.5 H 11.5 z" fill="white" />
+					</svg>
+
+			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-right-circle-fill svg-button" viewBox="0 0 16 16" 
+			onclick="(async () => {
+				window.location.href='page1.html'
+				openspace.globebrowsing.flyToGeo('Moon', 0.0, 0, 3500000)
+				openspace.setPropertyValueSingle('Scene.Moon.Renderable.GeoJson.Apollo11-Landing.Enabled', true)
+				openspace.setPropertyValueSingle('NavigationHandler.OrbitalNavigator.IdleBehavior.ShouldTriggerWhenIdle', false)
+			})(event)">
+  					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
+  					<path d="M 8 0 z M 4.5 7.5 a 0.5 0.5 0 0 0 0 1 h 5.793 l -2.147 2.146 a 0.5 0.5 0 0 0 0.708 0.708 l 3 -3 a 0.5 0.5 0 0 0 0 -0.708 l -3 -3 a 0.5 0.5 0 1 0 -0.708 0.708 L 10.293 7.5 H 4.5 z" fill="white" />
+					</svg>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- jQuery FIRST (Bootstrap JS plugins depend on it) -->
+	<script src="js/jquery-3.7.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+
+
+
+
+</body>
+</html>
+

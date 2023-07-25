@@ -27,6 +27,16 @@ h1 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-family: Impact; /* find HEROIC */
+  color: #FFCE34;
+}
+
+h3 {
+  font-family: Impact; /* find HEROIC */
+  
+}
+
 .set {
   overflow: hidden;
   padding: 15px;
