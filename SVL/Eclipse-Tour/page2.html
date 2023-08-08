@@ -6,13 +6,11 @@
 
 
 
-<title> Exploring the Apollo Missions </title>
+<title> Solar Eclipses in Context </title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="buttons.css">
 
-<style type="text/css">
-</style>
 <script type="text/javascript" src="openspace-api.js"></script>
      <script type="text/javascript">
 
@@ -55,11 +53,6 @@
 
 </head>
 
-<!-- 
-Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web. 
-
--->
-
 <body>
 
 	<!-- HTML Containers -->
@@ -72,17 +65,18 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
           <div id="main"></div>
           <script type="text/javascript">
             connectToOpenSpace('localhost');
+            setTimeout((async () => {openspace.sessionRecording.startPlayback('Cairolookup2.osrec',false)}), 15 * 1000)
           </script>
         </div>
         
-<h1>Apollo 11 was the first time we walked on the moon.</h1>
+<h1>Page 2 - TEXT MISSING HERE - I THINK THIS IS THE CAIRO PAGE AND THE PARAGRAPGH TEXT IS WRONG</h1>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6 style text"> 
-			<p>The first place we ever landed on the moon was the Sea of Tranquility. Chosen for its seemingly smooth appearance, astronauts Neil Armstrong and Buzz Aldrin were unlucky to find that the ground was actually littered with large rocks! </p>
+			<p>Page2</p>
 
-			<p>Zoom to look for yourself at the rocks Armstrong was trying to avoid!</p>
+			<p>Let’s jump three thousand years (and more than six thousand miles) ahead to Carbondale, Illinois!</p>
 		</div>
 		<div class="col-md-4">
 			<div class="container-fluid">
@@ -91,17 +85,17 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 						<div class="set  yellow">
   							<nav class="d-pad">
    								<a class="up" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(0.0,5.0)
-          							})(event)"></a>
-    							<a class="right" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(-5.0,0.0)
-          							})(event)"></a>
-    							<a class="down" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(0.0,-5.0)
-          							})(event)" onmousedown="start()" onmouseup="end()"></a>
-    							<a class="left" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(5.0,0.0)
-          							})(event)"></a>  
+                  openspace.navigation.addLocalRotation(0.0,5.0)
+                  })(event)"></a>
+                  <a class="right" href="#" onclick="(async () => {
+                  openspace.navigation.addGlobalRoll(-5.0,0.0)
+                  })(event)"></a>
+                  <a class="down" href="#" onclick="(async () => {
+                  openspace.navigation.addLocalRotation(0.0,-5.0)
+                  })(event)" ></a>
+                  <a class="left" href="#" onclick="(async () => {
+                  openspace.navigation.addGlobalRoll(5.0,0.0)
+                  })(event)"></a>
   							</nav>
 						</div>
 					</div>
@@ -116,7 +110,9 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
   					<path d="M 2 0 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 12 a 2 2 0 0 0 2 -2 V 2 a 2 2 0 0 0 -2 -2 z z"/>
   					<path d="M 2 0 v 0 z m 2.5 7.5 h 7 a 0.5 0.5 0 0 1 0 1 h -7 a 0.5 0.5 0 0 1 0 -1 z" fill="white" />
 					</svg>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="100px" height="100px" class="svg-button" onclick="(async () => {openspace.pathnavigation.flyTo('Moon')})(event)">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="100px" height="100px" class="svg-button" onclick="(async () => {
+            openspace.sessionRecording.startPlayback('Cairolookup2.osrec',false)
+          })(event)">
 			<path d="M 2 0 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 12 a 2 2 0 0 0 2 -2 V 2 a 2 2 0 0 0 -2 -2 z z"/>
 			<path d="m 78.6 -3.277 c -3.312 -7.713 -7.766 -14.367 -13.36 -19.961 c -5.595 -5.594 -12.248 -10.05 -19.962 -13.361 c -7.713 -3.314 -15.805 -4.97 -24.278 -4.97 c -7.984 0 -15.71 1.506 -23.18 4.521 c -7.468 3.01 -14.11 7.265 -19.92 12.751 l -10.593 -10.511 c -1.63 -1.684 -3.503 -2.064 -5.622 -1.141 c -2.173 0.924 -3.259 2.527 -3.259 4.808 v 36.5 c 0 1.412 0.516 2.634 1.548 3.666 c 1.033 1.032 2.255 1.548 3.667 1.548 h 36.5 c 2.282 0 3.884 -1.086 4.807 -3.259 c 0.923 -2.118 0.543 -3.992 -1.141 -5.622 l -11.162 -11.243 c 3.803 -3.585 8.148 -6.341 13.04 -8.27 c 4.889 -1.928 9.994 -2.893 15.317 -2.893 c 5.649 0 11.04 1.101 16.17 3.3 c 5.133 2.2 9.572 5.174 13.32 8.922 c 3.748 3.747 6.722 8.187 8.922 13.32 c 2.199 5.133 3.299 10.523 3.299 16.17 c 0 5.65 -1.1 11.04 -3.299 16.17 c -2.2 5.133 -5.174 9.573 -8.922 13.321 c -3.748 3.748 -8.188 6.722 -13.32 8.921 c -5.133 2.2 -10.525 3.3 -16.17 3.3 c -6.464 0 -12.574 -1.412 -18.332 -4.236 c -5.757 -2.824 -10.618 -6.816 -14.583 -11.977 c -0.38 -0.543 -1 -0.87 -1.874 -0.979 c -0.815 0 -1.494 0.244 -2.037 0.733 l -11.162 11.244 c -0.434 0.436 -0.665 0.991 -0.692 1.67 c -0.027 0.68 0.15 1.29 0.53 1.833 c 5.921 7.17 13.09 12.724 21.509 16.661 c 8.419 3.937 17.3 5.907 26.642 5.907 c 8.473 0 16.566 -1.657 24.279 -4.97 c 7.713 -3.313 14.365 -7.768 19.961 -13.361 c 5.594 -5.596 10.05 -12.248 13.361 -19.961 c 3.313 -7.713 4.969 -15.807 4.969 -24.279 c 0 -8.474 -1.657 -16.564 -4.97 -24.277" fill="#fff" transform="matrix(.07192 0 0 .07192 6.674 6.768)"/>
 		</svg>
@@ -130,7 +126,7 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-left-circle-fill svg-button" viewBox="0 0 16 16" 
 			onclick="(async () => {
 				window.location.href='page1.html'
-				openspace.pathnavigation.flyTo('Moon')
+				openspace.sessionRecording.startPlayback('Cairo Shadow.osrec',true)
 			})(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
   					<path d="M 8 0 z m 3.5 7.5 a 0.5 0.5 0 0 1 0 1 H 5.707 l 2.147 2.146 a 0.5 0.5 0 0 1 -0.708 0.708 l -3 -3 a 0.5 0.5 0 0 1 0 -0.708 l 3 -3 a 0.5 0.5 0 1 1 0.708 0.708 L 5.707 7.5 H 11.5 z" fill="white" />
@@ -139,13 +135,56 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-right-circle-fill svg-button" viewBox="0 0 16 16" 
 			onclick="(async () => {
 				window.location.href='page3.html'
-				openspace.globebrowsing.flyToGeo('Moon', -3.01239, -23.472157, 100000)
+				openspace.sessionRecording.startPlayback('TimeTravel.osrec',true )
 			})(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
   					<path d="M 8 0 z M 4.5 7.5 a 0.5 0.5 0 0 0 0 1 h 5.793 l -2.147 2.146 a 0.5 0.5 0 0 0 0.708 0.708 l 3 -3 a 0.5 0.5 0 0 0 0 -0.708 l -3 -3 a 0.5 0.5 0 1 0 -0.708 0.708 L 10.293 7.5 H 4.5 z" fill="white" />
 					</svg>
 
 		</div>
+    <div class="col-md-6" align="center">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="85px" height="85px" fill="currentColor" class="bi bi-rewind-circle-fill svg-button" viewBox="0 0 16 16"
+      onclick="(async () => {
+        openspace.time.interpolatePreviousDeltaTimeStep()
+      })(event)"
+      >
+         <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM7.729 5.055A.5.5 0 0 1 8 5.5v1.886l3.21-2.293A.5.5 0 0 1 12 5.5v5a.5.5 0 0 1-.79.407L8 8.614V10.5a.5.5 0 0 1-.79.407l-3.5-2.5a.5.5 0 0 1 0-.814l3.5-2.5a.5.5 0 0 1 .519-.038Z"/>
+         <path d="M7.729 5.055a.5.5 0 0 0-.52.038l-3.5 2.5a.5.5 0 0 0 0 .814l3.5 2.5A.5.5 0 0 0 8 10.5V8.614l3.21 2.293A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407L8 7.386V5.5a.5.5 0 0 0-.271-.445Z" fill="white"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="85px" height="85px" fill="currentColor" class="bi bi-pause-circle-fill svg-button" viewBox="0 0 16 16"
+      onclick="(async () => {
+        openspace.time.interpolateTogglePause()
+      })(event)"
+      >
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
+      <path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z" fill="white"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="85px" height="85px" fill="currentColor" class="bi bi-play-circle-fill svg-button" viewBox="0 0 16 16"
+      onclick="(async () => {
+        openspace.time.interpolateTogglePause()
+      })(event)"
+      >
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+      <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" fill="white"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="85px" height="85px" fill="currentColor" class="bi bi-fast-forward-circle-fill svg-button" viewBox="0 0 16 16"
+      onclick="(async () => {
+        openspace.time.interpolateNextDeltaTimeStep()
+      })(event)"
+      >
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM4.79 5.093 8 7.386V5.5a.5.5 0 0 1 .79-.407l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 8 10.5V8.614l-3.21 2.293A.5.5 0 0 1 4 10.5v-5a.5.5 0 0 1 .79-.407Z"/>
+        <path d="M4.271 5.055a.5.5 0 0 1 .52.038L8 7.386V5.5a.5.5 0 0 1 .79-.407l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 8 10.5V8.614l-3.21 2.293A.5.5 0 0 1 4 10.5v-5a.5.5 0 0 1 .271-.445Z" fill="white"/>
+      </svg>
+
+    </div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -156,39 +195,8 @@ Bootstrap is the most popular HTML, CSS, and JS framework for developing respons
 	<script src="js/jquery-3.7.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
-	<script>
-(function() {
-
-    const idleDurationSecs = 15;    // X number of seconds
-    const redirectUrl = 'page1.html';  // Redirect idle users to this URL
-    let idleTimeout; // variable to hold the timeout, do not modify
-
-    const resetIdleTimeout = function() {
-
-        // Clears the existing timeout
-        if(idleTimeout) clearTimeout(idleTimeout);
-
-        // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-        // idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
-        idleTimeout = setTimeout((async () => {
-				window.location.href='page1.html'
-				openspace.pathnavigation.flyTo('Moon')}), idleDurationSecs * 1000);
-    };
-
-    // Init on page load
-    resetIdleTimeout();
-
-    // Reset the idle timeout on any of the events listed below
-    ['click', 'touchstart', 'mousemove'].forEach(evt => 
-        document.addEventListener(evt, resetIdleTimeout, false)
-    );
-
-})();
-</script>
-
 
 
 
 </body>
 </html>
-
