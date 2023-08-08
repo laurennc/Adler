@@ -66,18 +66,23 @@
           <div id="main"></div>
           <script type="text/javascript">
             connectToOpenSpace('localhost');
-            setTimeout((async () => {openspace.sessionRecording.startPlayback('Carbondale Look up.osrec', false)}), 20 * 1000)
+            setTimeout((async () => {openspace.sessionRecording.startPlayback('Carbondale look up 2.osrec', false)}), 20 * 1000)
           </script>
         </div>
         
-<h1>PAGE 4 - MISSING TEXT ON THIS PAGE</h1>
+<h1>Explore the April 2024 solar eclipse</h1>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6 style text"> 
-			<p>Page2</p>
+			<p>You are now in the Southern Illinois University stadium in Carbondale, three hundred miles away from where you are standing. The Adler will be hosting an eclipse watching event in this very stadium in April. Do you notice any similarities with the other eclipse you saw in Egypt? That’s right, even though the two events occurred more than four thousand years apart, it is the exact same thing. Watching a solar eclipse is an experience that all humans have shared across millenia. Use the navigation buttons and the video control buttons to look around your surroundings and play the eclipse.</p>
 
-			<p>Zoom to look for yourself at the rocks Armstrong was trying to avoid!</p>
+			<p>Unlike the ancient Egyptians, however, we can calculate when solar eclipses will happen and also know what causes them. So instead of being scared, we get to enjoy the special occasion. But what exactly causes a solar eclipse? </p>
+      
+      <p>Click the buttons to rotate and zoom in.
+      Click the video controls to speed through and reverse the eclipse.
+      Click next to explore the cause of a solar eclipse. </p>
+      
 		</div>
 		<div class="col-md-4">
 			<div class="container-fluid">
@@ -114,7 +119,7 @@
   					<path d="M 2 0 v 0 z m 2.5 7.5 h 7 a 0.5 0.5 0 0 1 0 1 h -7 a 0.5 0.5 0 0 1 0 -1 z" fill="white" />
 					</svg>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="100px" height="100px" class="svg-button" onclick="(async () => {
-            openspace.sessionRecording.startPlayback('Carbondale Look up.osrec', false)
+            openspace.sessionRecording.startPlayback('Carbondale look up 2.osrec', false)
             })(event)">
 			<path d="M 2 0 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 12 a 2 2 0 0 0 2 -2 V 2 a 2 2 0 0 0 -2 -2 z z"/>
 			<path d="m 78.6 -3.277 c -3.312 -7.713 -7.766 -14.367 -13.36 -19.961 c -5.595 -5.594 -12.248 -10.05 -19.962 -13.361 c -7.713 -3.314 -15.805 -4.97 -24.278 -4.97 c -7.984 0 -15.71 1.506 -23.18 4.521 c -7.468 3.01 -14.11 7.265 -19.92 12.751 l -10.593 -10.511 c -1.63 -1.684 -3.503 -2.064 -5.622 -1.141 c -2.173 0.924 -3.259 2.527 -3.259 4.808 v 36.5 c 0 1.412 0.516 2.634 1.548 3.666 c 1.033 1.032 2.255 1.548 3.667 1.548 h 36.5 c 2.282 0 3.884 -1.086 4.807 -3.259 c 0.923 -2.118 0.543 -3.992 -1.141 -5.622 l -11.162 -11.243 c 3.803 -3.585 8.148 -6.341 13.04 -8.27 c 4.889 -1.928 9.994 -2.893 15.317 -2.893 c 5.649 0 11.04 1.101 16.17 3.3 c 5.133 2.2 9.572 5.174 13.32 8.922 c 3.748 3.747 6.722 8.187 8.922 13.32 c 2.199 5.133 3.299 10.523 3.299 16.17 c 0 5.65 -1.1 11.04 -3.299 16.17 c -2.2 5.133 -5.174 9.573 -8.922 13.321 c -3.748 3.748 -8.188 6.722 -13.32 8.921 c -5.133 2.2 -10.525 3.3 -16.17 3.3 c -6.464 0 -12.574 -1.412 -18.332 -4.236 c -5.757 -2.824 -10.618 -6.816 -14.583 -11.977 c -0.38 -0.543 -1 -0.87 -1.874 -0.979 c -0.815 0 -1.494 0.244 -2.037 0.733 l -11.162 11.244 c -0.434 0.436 -0.665 0.991 -0.692 1.67 c -0.027 0.68 0.15 1.29 0.53 1.833 c 5.921 7.17 13.09 12.724 21.509 16.661 c 8.419 3.937 17.3 5.907 26.642 5.907 c 8.473 0 16.566 -1.657 24.279 -4.97 c 7.713 -3.313 14.365 -7.768 19.961 -13.361 c 5.594 -5.596 10.05 -12.248 13.361 -19.961 c 3.313 -7.713 4.969 -15.807 4.969 -24.279 c 0 -8.474 -1.657 -16.564 -4.97 -24.277" fill="#fff" transform="matrix(.07192 0 0 .07192 6.674 6.768)"/>
@@ -140,7 +145,7 @@
         openspace.setPropertyValueSingle('Scene.Sun.Renderable.Enabled', false)
 				window.location.href='page5.html'
         openspace.setPropertyValueSingle('RenderEngine.BlackoutFactor', 0.0, 3)
-				//openspace.sessionRecording.startPlayback('MoonToEarthre.osrec',false)
+				openspace.sessionRecording.startPlayback('MoonToEarthre.osrec',false)
 			   })(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
   					<path d="M 8 0 z M 4.5 7.5 a 0.5 0.5 0 0 0 0 1 h 5.793 l -2.147 2.146 a 0.5 0.5 0 0 0 0.708 0.708 l 3 -3 a 0.5 0.5 0 0 0 0 -0.708 l -3 -3 a 0.5 0.5 0 1 0 -0.708 0.708 L 10.293 7.5 H 4.5 z" fill="white" />
