@@ -77,14 +77,16 @@
                       </script>
         </div>
         
-<h1>PAGE 5 - MISSING TEXT HERE</h1>
+<h1>Explore the April 2024 solar eclipse (from SPACE)</h1>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6 style text"> 
-			<p>The first place we ever landed on the moon was the Sea of Tranquility. Chosen for its seemingly smooth appearance, astronauts Neil Armstrong and Buzz Aldrin were unlucky to find that the ground was actually littered with large rocks! </p>
+			<p>Standing behind the moon you are now facing the Earth. As you can see, the darkening of the sky we see on Earth is not necessarily the covering of the sun but rather the shadow of the moon cast onto the Earth by the sun. A total solar eclipse like the ones you experienced in Cairo and Carbondale is an extraordinary event as the orbit of the moon around the Earth and the Earth around the sun perfectly lines up. Even though the sun is more than 400 times the size of the moon, the two objects appear to be perfectly the same size as the moon slides across the sky to cover the sun. </p>
 
-			<p>Zoom to look for yourself at the rocks Armstrong was trying to avoid!</p>
+			<p>Click the buttons to rotate and zoom in.
+      Click the video controls to speed through and reverse the eclipse.
+      Click next to explore the path of totality. </p>
 		</div>
 		<div class="col-md-4">
 			<div class="container-fluid">
@@ -96,13 +98,13 @@
                   openspace.navigation.addLocalRotation(0.0,5.0)
                   })(event)"></a>
                   <a class="right" href="#" onclick="(async () => {
-                  openspace.navigation.addLocalRotation(-85.0,0.0)
+                  openspace.navigation.addLocalRotation(-30.0,0.0)
                   })(event)"></a>
                   <a class="down" href="#" onclick="(async () => {
                   openspace.navigation.addLocalRotation(0.0,-5.0)
                   })(event)"></a>
                   <a class="left" href="#" onclick="(async () => {
-                  openspace.navigation.addLocalRotation(80.0,0.0)
+                  openspace.navigation.addLocalRotation(30.0,0.0)
                   })(event)"></a>  
                 </nav>						</div>
 					</div>
@@ -158,9 +160,6 @@
         openspace.setPropertyValueSingle('Scene.EarthTrail.Renderable.Enabled',false)
         openspace.setPropertyValueSingle('Scene.Earth.Renderable.Layers.Overlays.Reference_Features.Enabled', true)
         openspace.setPropertyValueSingle('Scene.Earth.Renderable.Layers.Overlays.Reference_Features.BlendMode', 2.0)
-
-        //setTimeout((async () => {openspace.setPropertyValueSingle('Scene.Earth.Renderable.GeoJson.Short_Apr24_Event.Enabled',true)}), 5 * 1000)
-        //setTimeout((async () => {openspace.setPropertyValueSingle('Scene.Earth.Renderable.GeoJson.Short_Apr24_Event.Fade',1,1)}), 5 * 1000);
 							})(event)">
   					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
   					<path d="M 8 0 z M 4.5 7.5 a 0.5 0.5 0 0 0 0 1 h 5.793 l -2.147 2.146 a 0.5 0.5 0 0 0 0.708 0.708 l 3 -3 a 0.5 0.5 0 0 0 0 -0.708 l -3 -3 a 0.5 0.5 0 1 0 -0.708 0.708 L 10.293 7.5 H 4.5 z" fill="white" />
