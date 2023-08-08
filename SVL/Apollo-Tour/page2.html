@@ -87,16 +87,16 @@
 						<div class="set  yellow">
   							<nav class="d-pad">
    								<a class="up" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(0.0,5.0)
+            						openspace.navigation.addLocalRotation(0.0,5.0)
           							})(event)"></a>
     							<a class="right" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(-5.0,0.0)
+            						openspace.navigation.addGlobalRoll(-5.0,0.0)
           							})(event)"></a>
     							<a class="down" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(0.0,-5.0)
+            						openspace.navigation.addLocalRotation(0.0,-5.0)
           							})(event)" onmousedown="start()" onmouseup="end()"></a>
     							<a class="left" href="#" onclick="(async () => {
-            						openspace.navigation.addGlobalRotation(5.0,0.0)
+            						openspace.navigation.addGlobalRoll(5.0,0.0)
           							})(event)"></a>  
   							</nav>
 						</div>
@@ -158,7 +158,7 @@
 	<script>
 (function() {
 
-    const idleDurationSecs = 15;    // X number of seconds
+    const idleDurationSecs = 15000000;    // X number of seconds
     const redirectUrl = 'page1.html';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 

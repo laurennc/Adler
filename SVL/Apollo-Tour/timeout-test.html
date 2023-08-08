@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title> Testing Javascript Functions </title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="buttons.css">
+
+<style type="text/css">
+</style>
+<!-- jQuery FIRST (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-3.7.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+<script type="text/javascript" src="openspace-api.js"></script>
+<script type="text/javascript" src="index.js"></script>
+     <script type="text/javascript">
+
+    //variable for js libarary
+    var openspace = null;
+
+    //helper function to connect to opensapce
+    var connectToOpenSpace = () => {
+      //setup the api params
+      var host = document.getElementById('ipaddress').value;
+      var api = window.openspaceApi(host, 4682);
+      //notify users on disconnect
+      api.onDisconnect(() => {
+        console.log("disconnected");
+        document.getElementById('container').className = "disconnected";
+        var disconnectedString = "Connect to OpenSpace: ";
+        disconnectedString += '<input id="ipaddress" type=text placeholder="Enter ip address" /> ';
+        disconnectedString += '<button onClick="connectToOpenSpace();">Connect</button>';
+        document.getElementById('connection-status').innerHTML = disconnectedString;
+        openspace = null;
+      });
+      //notify users and map buttons when connected
+      api.onConnect(async () => {
+        try {
+          document.getElementById('container').className = "connected";
+          document.getElementById('connection-status').innerHTML = "Connected to OpenSpace";
+          openspace = await api.library();
+          console.log('connected');
+          mapButtons(openspace);
+          } catch (e) {
+          console.log('OpenSpace library could not be loaded: Error: \n', e)
+          return;
+        }
+      })
+      //connect
+      api.connect();
+
+      };
+        </script>
+
+
+</head>
+
+
+<body >
+
+
+	<!-- HTML Containers -->
+        <div id="container" class="disconnected">
+          <div id="connection-status" class="connection-status">
+            Connect to OpenSpace:
+            <input id='ipaddress' type=text placeholder="Enter ip address" />
+            <button onClick="connectToOpenSpace();">Connect</button>
+          </div>
+          <div id="main"></div>
+          <script type="text/javascript">
+            connectToOpenSpace('localhost');
+            setTimeout((async () => {openspace.globebrowsing.flyToGeo('Moon',0.0,0.0,3500000)}), 1 * 1000)
+          </script>
+        </div>
+
+        
+<h1>Where should we go next?</h1>
+
+<div class="container-fluid" > //onload="(async () => {
+        //window.location.href='page1.html'
+        //openspace.globebrowsing.flyToGeo('Earth', 40.80741772034749, -73.96239031367438, 100.)})(event)">
+	<div class="row">
+		<div class="col-md-6 style text"> 
+			<p>Looking at the near side of the moon, we can see all six of the places where humans have walked on the moon. We've gone to mountains and craters and plains across the face of the moon.  </p>
+
+			<p>Use the navigation buttons to explore the moon for yourself. Where have we NOT landed? Where do you think we should go next? </p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6" align="center">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-left-circle-fill svg-button" viewBox="0 0 16 16" 
+			onclick="(async () => {
+				window.location.href='page7.html'
+				openspace.pathnavigation.flyTo('Moon')
+			})(event)">
+  					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
+  					<path d="M 8 0 z m 3.5 7.5 a 0.5 0.5 0 0 1 0 1 H 5.707 l 2.147 2.146 a 0.5 0.5 0 0 1 -0.708 0.708 l -3 -3 a 0.5 0.5 0 0 1 0 -0.708 l 3 -3 a 0.5 0.5 0 1 1 0.708 0.708 L 5.707 7.5 H 11.5 z" fill="white" />
+					</svg>
+
+			<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" class="bi bi-arrow-right-circle-fill svg-button" viewBox="0 0 16 16" 
+			onclick="(async () => {
+				//window.location.href='page1.html'
+				openspace.globebrowsing.flyToGeo('Earth', 40.80741772034749, -73.96239031367438, 100.)
+				setTimeout((async () => {openspace.globebrowsing.flyToGeo('Moon',0.0,0.0,3500000)}), 30 * 1000);  // 30 sec wait
+        })(event)">
+  					<path d="M 8 0 a 8 8 0 1 0 0 16 A 8 8 0 0 0 8 0 z z"/>
+  					<path d="M 8 0 z M 4.5 7.5 a 0.5 0.5 0 0 0 0 1 h 5.793 l -2.147 2.146 a 0.5 0.5 0 0 0 0.708 0.708 l 3 -3 a 0.5 0.5 0 0 0 0 -0.708 l -3 -3 a 0.5 0.5 0 1 0 -0.708 0.708 L 10.293 7.5 H 4.5 z" fill="white" />
+					</svg>
+
+		</div>
+
+</div>
+
+
+
+
+
+
+
+
+	
+
+
+</body>
+</html>
+
