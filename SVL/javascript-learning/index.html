@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
+		
+		<title>OpenSpace Interactive</title>
+						
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">	
+
+		<!-- jQuery FIRST (Bootstrap JS plugins depend on it) -->
+		<script src="../js/jquery-3.7.0.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="index.js"></script>
+		
+		<script type="text/javascript">
+		
+			var buildAllComponents = () => { 
+											buildInformationPanel();}
+											//buildSVGComponents();	}							//This function initlaized the page content based on the default 'current' variable assignments.
+											
+	  
+			//Information Page Variables
+			var information={
+									"moon": [
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "People have long imagined what it would be like to travel to the moon. Spurred on by technological advancement and competition with the USSR, NASA was mandated to send a man to the moon. Thus, the Apollo program was born. ",
+													"text2": "But where did these missions go? Where did people walk on the surface of the moon? And what are the plans for the future? Follow this tour to learn more. ",
+													"text3": "Moon - Page 1 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Header",
+													"text1Span": "Moon - Spanish Page 1 Text1",
+													"text2Span": "Moon - Spanish Page 1 Text2",
+													"text3Span": "Moon - Spanish Page 1 Text3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "Moon - Page 2 - Text 1",
+													"text2": "Moon - Page 2 - Text 2",
+													"text3": "Moon - Page 2 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Page 2 Header",
+													"text1Span": "Moon - Spanish Page 2 Text1",
+													"text2Span": "Moon - Spanish Page 2 Text2",
+													"text3Span": "Moon - Spanish Page 2 Text3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Explore Where Humans Walked on the Moon!",
+													"text1": "Moon - Page 3 - Text 1",
+													"text2": "Moon - Page 3 - Text 2",
+													"text3": "Moon - Page 3 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Moon - Spanish Page 2 Header",
+													"text1Span": "Moon - Spanish Page 3 Text1",
+													"text2Span": "Moon - Spanish Page 3 Text2",
+													"text3Span": "Moon - Spanish Page 3 Text3",
+													"narrationSpan": "piano2.wav"
+												}
+											],
+											
+									"topic2": [
+												{
+													"header": "Topic 2 - Page 1 Header",
+													"text1": "Topic 2 - Page 1 - Text 1",
+													"text2": "Topic 2 - Page 1 - Text 2",
+													"text3": "Topic 2 - Page 1 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 1 Header",
+													"text1Span": "Topic 2 - Spanish Page 1 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 1 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 1 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 2 Header",
+													"text1": "Topic 2 - Page 2 - Text 1",
+													"text2": "Topic 2 - Page 2 - Text 2",
+													"text3": "Topic 2 - Page 2 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 2 Header",
+													"text1Span": "Topic 2 - Spanish Page 2 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 2 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 2 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 3 Header",
+													"text1": "Topic 2 - Page 3 - Text 1",
+													"text2": "Topic 2 - Page 3 - Text 2",
+													"text3": "Topic 2 - Page 3 - Text 3",
+													"narration": "topic2P3.mp3",
+													"headerSpan": "Topic 2 - Spanish Page 3 Header",
+													"text1Span": "Topic 2 - Spanish Page 3 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 3 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 3 - Text 3",
+													"narrationSpan": "piano2.wav"
+												}
+										     ]
+							};	
+			var buttons={
+						"moon": [
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": {
+											"path1" : "M 2 0 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 12 a 2 2 0 0 0 2 -2 V 2 a 2 2 0 0 0 -2 -2 z z",
+											"path2" : "M 2 0 v 0 z m 2.5 7.5 h 7 a 0.5 0.5 0 0 1 0 1 h -7 a 0.5 0.5 0 0 1 0 -1 z",
+											"fill2" : "white",
+											"click" : "sayHi()"
+
+										},
+										"down": "Moon - Spanish Page 1 Text2"
+									},
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": "Moon - Spanish Page 1 Text1",
+										"down": "Moon - Spanish Page 1 Text2"
+									},
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": "Moon - Spanish Page 1 Text1",
+										"down": "Moon - Spanish Page 1 Text2"
+									},
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": "Moon - Spanish Page 1 Text1",
+										"down": "Moon - Spanish Page 1 Text2"
+									},
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": "Moon - Spanish Page 1 Text1",
+										"down": "Moon - Spanish Page 1 Text2"
+									},
+									{
+										"onLoad": "Explore Where Humans Walked on the Moon!",
+										"refresh": "Moon - Page 1 - Text 3",
+										"back": "piano2.wav",
+										"next": "Moon - Spanish Header",
+										"up": "Moon - Spanish Page 1 Text1",
+										"down": "Moon - Spanish Page 1 Text2"
+									}		
+									],
+											
+									"topic2": [
+												{
+													"header": "Topic 2 - Page 1 Header",
+													"text1": "Topic 2 - Page 1 - Text 1",
+													"text2": "Topic 2 - Page 1 - Text 2",
+													"text3": "Topic 2 - Page 1 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 1 Header",
+													"text1Span": "Topic 2 - Spanish Page 1 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 1 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 1 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 2 Header",
+													"text1": "Topic 2 - Page 2 - Text 1",
+													"text2": "Topic 2 - Page 2 - Text 2",
+													"text3": "Topic 2 - Page 2 - Text 3",
+													"narration": "piano2.wav",
+													"headerSpan": "Topic 2 - Spanish Page 2 Header",
+													"text1Span": "Topic 2 - Spanish Page 2 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 2 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 2 - Text 3",
+													"narrationSpan": "piano2.wav"
+												},
+												{
+													"header": "Topic 2 - Page 3 Header",
+													"text1": "Topic 2 - Page 3 - Text 1",
+													"text2": "Topic 2 - Page 3 - Text 2",
+													"text3": "Topic 2 - Page 3 - Text 3",
+													"narration": "topic2P3.mp3",
+													"headerSpan": "Topic 2 - Spanish Page 3 Header",
+													"text1Span": "Topic 2 - Spanish Page 3 - Text 1",
+													"text2Span": "Topic 2 - Spanish Page 3 - Text 2",
+													"text3Span": "Topic 2 - Spanish Page 3 - Text 3",
+													"narrationSpan": "piano2.wav"
+												}
+										     ]
+							};	
+			
+			var currentTopic="moon";
+			var currentPage=0;
+			
+			
+			
+			//Accessibility Div Variables
+			var narrationOn=false;
+			var currentLanguage="English";
+			var audio;
+			
+		</script>
+		</head>
+		
+	<body onload="buildInformationPanel();" >
+		<div id="experienceDiv" class="container-fluid" style="margin-top: 50px;">
+			<div class="row">
+							
+				
+				<div id="informationDiv" class="col-12 col-sm-6 col-lg-8 container-fluid"> 
+					
+					<div class="row">
+						<div id="informationPage" class="informationPage">					
+							<h1 id="informationHeader"></h1>				
+							<p id="informationText1"></p>
+							<p id="informationText2"></p>
+							<p id="informationText3"></p>
+						</div>				
+						
+					</div>
+					
+					
+				</div>
+					
+			</div>			
+			
+		</div>
+				
+
+	</body>	
